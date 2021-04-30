@@ -1,0 +1,17 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <title>Hello Django</title>
+</head>
+
+<body id="body">
+    <div id="homeBody">
+        <h3 id="today">{{today}}</h3>
+        <button id="logoutButton" onclick="location.href = 'Auth/logout'">logout</button>
+    </div>
+</body>
+
+</html>
