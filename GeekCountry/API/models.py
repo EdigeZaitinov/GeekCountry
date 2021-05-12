@@ -1,5 +1,5 @@
 from django.db import models
-from API import managers
+from api import managers
 
 
 class Movie_genre(models.Model):

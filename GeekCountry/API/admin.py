@@ -1,6 +1,6 @@
 from django.contrib import admin
-from API.models import Offline_game, Online_game, Game_genre
-from API.models import Movie_genre, Film, Series
+from api.models import Offline_game, Online_game, Game_genre
+from api.models import Movie_genre, Film, Series
 
 
 @admin.register(Movie_genre)  # первый способ

@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from rest_framework import views
-from API.models import Movie_genre, Film, Series, Game_genre, Online_game, Offline_game
+from api.models import Movie_genre, Film, Series, Game_genre, Online_game, Offline_game
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from API.my_serializers import FilmSerializer, SeriesSerializer, OnlineGameSerializer, OfflineGameSerializer
-from API.my_serializers import MovieGenreSerializer, GameGenreSerializer
+from api.my_serializers import FilmSerializer, SeriesSerializer, OnlineGameSerializer, OfflineGameSerializer
+from api.my_serializers import MovieGenreSerializer, GameGenreSerializer
 from django.views import View
 
 

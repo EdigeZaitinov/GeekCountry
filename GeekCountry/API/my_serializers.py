@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from API.models import Movie_genre, Film, Series, Online_game, Offline_game
+from api.models import Movie_genre, Film, Series, Online_game, Offline_game
 
 
 class MovieGenreSerializer(serializers.Serializer):
