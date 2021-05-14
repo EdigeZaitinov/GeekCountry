@@ -64,7 +64,7 @@ def getUserFilms(request):
 def getUserSeries(request):
     series_basket = CustomUser.objects.get(
         email=request.user.email).series_basket.all()
-    serializer = FilmSerializer(series_basket, many=True)
+    serializer = SeriesSerializer(series_basket, many=True)
     return Response(serializer.data)
 
 

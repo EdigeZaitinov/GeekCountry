@@ -168,7 +168,7 @@ def get_offline_games_by_genre(request, offline_games_genre):
 @login_required(login_url='Auth/login')
 @api_view(['GET'])
 def get_offline_game(request, offline_game_name):
-    offline_game = Film.films_manager.filter(name=offline_game_name)[:1]
+    offline_game = Offline_game.offline_game_manager.filter(name=offline_game_name)[:1]
     serializer = OfflineGameSerializer(offline_game, many=True)
     return Response(serializer.data)
 

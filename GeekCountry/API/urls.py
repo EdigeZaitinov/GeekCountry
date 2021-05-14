@@ -22,7 +22,7 @@ urlpatterns = [
          views.get_series_by_genre, name='seriesByGenre'),
     path('series/single/<str:series_name>',
          views.get_one_series, name="seriesByName"),
-    path('series/single/<str:series_name>',
+    path('series/single/<str:series_name>/collect',
          views.collect_series, name="collectSeries"),
 
     ######################### ONLINE_GAMES ##########################
