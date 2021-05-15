@@ -33,7 +33,6 @@ def loginView(request):  # пользователь логинится
 
 def logoutView(request):  # пользователь логаутится
     logout(request)
-    logger.info('user'+request.user.email+' logout')
     return redirect('login')
 
 
@@ -97,4 +96,51 @@ def getUserOfflineGames(request):
         email=request.user.email).offline_games_basket.all()
     serializer = OfflineGameSerializer(offline_games_basket, many=True)
     logger.warning('getting user offline games')
+    return Response(serializer.data)
+
+
+@login_required(login_url='login')
+@api_view(['GET'])
+def BuyOnlineGame(request, online_game_name):
+    online_game = request.user.online_games_basket.get(name=online_game_name)
+    online_game.bought = True
+    online_game.save(update_fields=["bought"])
+    serializer = OnlineGameSerializer(online_game)
+    logger.warning('buying user online game')
+    return Response(serializer.data)
+
+
+@login_required(login_url='login')
+@api_view(['GET'])
+def BuyOfflineGame(request, offline_game_name):
+    offline_game = request.user.offline_games_basket.get(
+        name=offline_game_name)
+    offline_game.bought = True
+    offline_game.save(update_fields=["bought"])
+    serializer = OfflineGameSerializer(offline_game)
+    logger.warning('buying user offline game')
+    return Response(serializer.data)
+
+
+@login_required(login_url='login')
+@api_view(['GET'])
+def BuyFilm(request, film_name):
+    film = request.user.films_basket.get(
+        name=film_name)
+    film.bought = True
+    film.save(update_fields=["bought"])
+    serializer = FilmSerializer(film)
+    logger.warning('buying user film')
+    return Response(serializer.data)
+
+
+@login_required(login_url='login')
+@api_view(['GET'])
+def BuySeries(request, series_name):
+    series = request.user.series_basket.get(
+        name=series_name)
+    series.bought = True
+    series.save(update_fields=["bought"])
+    serializer = SeriesSerializer(series)
+    logger.warning('buying user series')
     return Response(serializer.data)

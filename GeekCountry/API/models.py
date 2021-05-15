@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import IntegerField
 from api import managers
 
 
@@ -14,6 +15,8 @@ class Movie(models.Model):
     producer = models.CharField(max_length=100)
     name = models.CharField(max_length=200)
     description = models.TextField()
+    cost = models.IntegerField()
+    bought = models.BooleanField(default=False)
 
     class Meta:
         abstract = True
@@ -38,6 +41,8 @@ class Game(models.Model):
     genre = models.ForeignKey(Game_genre, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     description = models.TextField()
+    cost = models.IntegerField()
+    bought = models.BooleanField(default=False)
 
     class Meta:
         abstract = True
@@ -52,3 +57,4 @@ class Online_game(Game):
 class Offline_game(Game):
     internet_connection = False
     offline_game_manager = managers.Offline_game_manager()
+

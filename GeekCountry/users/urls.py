@@ -10,4 +10,12 @@ urlpatterns = [
     path('user/offlineGames', views.getUserOfflineGames, name='userOfflineGames'),
     path('user/films', views.getUserFilms, name='userFilms'),
     path('user/series', views.getUserSeries, name='userSeries'),
+    path('user/onlineGames/<str:online_game_name>/buy',
+         views.BuyOnlineGame, name='BuyOnlineGame'),
+    path('user/offlineGames/<str:offline_game_name>/buy',
+         views.BuyOfflineGame, name='BuyOfflineGame'),
+    path('user/films/<str:film_name>/buy',
+         views.BuyFilm, name='BuyFilm'),
+    path('user/series/<str:series_name>/buy',
+         views.BuySeries, name='BuySeries'),
 ]
